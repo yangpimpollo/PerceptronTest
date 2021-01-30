@@ -9,10 +9,12 @@ public class Perceptron2 {
 
     public static double neuron(double[] input, double[] weight, double b[]){
 
-        return x1*w1+x2*w2+b;
+        return 0;//x1*w1+x2*w2+b;
     }
 
+
     public static void main(String[] args) {
+
 
 
     }
