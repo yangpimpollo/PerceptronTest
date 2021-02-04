@@ -11,6 +11,7 @@ public class Layer {
     private double[] b;
     private double[] z;
     private double[] a;
+    private boolean forward=false;
 
     public Layer(int inputsNum, int neuronNum){
         this.inputsNum=inputsNum;
@@ -31,6 +32,7 @@ public class Layer {
     }
 
     public double[] z_calulate(double[] inputs) {
+        forward=true;
         for (int i=0; i<neuronNum; i++){
             z[i]=Hadamard(inputsNum, inputs, w[i], b[i]);
         }
@@ -46,6 +48,10 @@ public class Layer {
         return singleZ;
     }
 
+    public void getLayerInfo(){
+
+    }
+
     public int getInputsNum() { return inputsNum; }
     public int getNeuronNum() { return neuronNum; }
 
@@ -55,6 +61,7 @@ public class Layer {
     public double[] getBiasMatrix() {
         return b;
     }
+    public double[] getZMatrix() { return z=(forward)? z:null; }
 
     public ArrayList<Neuron> getLayerNeuron() {
         return layerNeuron;

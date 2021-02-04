@@ -3,6 +3,72 @@ package multiLayer;
 public class Main {
 
     public static void main(String[] args) {
+        int[] neuronsNum={3,2};
+        double[] input0= {3, 8};
+
+
+        Neuron n = new Neuron(2);
+        n.getNeuronInfo();
+
+    }
+}
+
+/*
+        test 2
+         public static void main(String[] args) {
+        int[] neuronsNum={3,2};
+        double[] input0= {3, 8};
+
+
+        Neural_network nn=new Neural_network(2,2, neuronsNum);
+
+        System.out.println("-------------------------------------------");
+        System.out.println("--layer 0");
+        //System.out.println("bias0: "+nn.getAll_Layers().get(0).getLayerNeuron().get(0).getBias());
+        //System.out.println("bias1: "+nn.getAll_Layers().get(0).getLayerNeuron().get(1).getBias());
+        //System.out.println("bias2: "+nn.getAll_Layers().get(0).getLayerNeuron().get(2).getBias());
+        //System.out.println("--------------------------");
+        for (int i=0; i<nn.getAll_Layers().get(0).getNeuronNum(); i++){
+        System.out.println("bias"+i+": "+nn.getAll_Layers().get(0).getBiasMatrix()[i]);
+        }
+        System.out.println("--------------------------");
+        for (int j=0; j< nn.getAll_Layers().get(0).getNeuronNum(); j++){
+        System.out.println();
+        for (int i=0; i< nn.getAll_Layers().get(0).getInputsNum(); i++){
+        System.out.println("-"+nn.getAll_Layers().get(0).getWeightsMatrix()[j][i]);
+        }
+        }
+
+        System.out.println("-------------------------------------------");
+        System.out.println("--layer 1");
+
+        for (int i=0; i<nn.getAll_Layers().get(1).getNeuronNum(); i++){
+        System.out.println("bias"+i+": "+nn.getAll_Layers().get(1).getBiasMatrix()[i]);
+        }
+        System.out.println("--------------------------");
+        for (int j=0; j< nn.getAll_Layers().get(1).getNeuronNum(); j++){
+        System.out.println();
+        for (int i=0; i< nn.getAll_Layers().get(1).getInputsNum(); i++){
+        System.out.println("-"+nn.getAll_Layers().get(1).getWeightsMatrix()[j][i]);
+        }
+        }
+
+        nn.runNeuron(input0);
+        System.out.println("-------------------------------------------");
+        System.out.println("-- Z_layer 0");
+        for (int i=0; i<nn.getAll_Layers().get(0).getNeuronNum(); i++){
+        System.out.println("z0-"+i+": "+nn.getAll_Layers().get(0).getZMatrix()[i]);
+        }
+        System.out.println("-------------------------------------------");
+        System.out.println("-- Z_layer 1");
+        for (int i=0; i<nn.getAll_Layers().get(1).getNeuronNum(); i++){
+        System.out.println("z1-"+i+": "+nn.getAll_Layers().get(1).getZMatrix()[i]);
+        }
+        }
+ */
+/*
+        test 1
+public static void main(String[] args) {
 
         Layer l=new Layer(2,3);
         System.out.println("bias1: "+l.getLayerNeuron().get(0).getBias());
@@ -25,5 +91,10 @@ public class Main {
             System.out.println("z"+i+": "+l.z_calulate(input)[i]);
         }
 
+        System.out.println("--------------------------");
+        for (int i=0; i<3; i++){
+            System.out.println("-z"+i+": "+l.getZMatrix()[i]);
+        }
+
     }
-}
+ */
