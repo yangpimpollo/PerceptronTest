@@ -18,16 +18,21 @@ public class And_Perceptron3 {
     }
 
     // ---- Natural Functions ---------------------------------
-    public void trainNeuron(double[][] data){
-        for(int i=0; i<4; i++){
+    public double trainNeuron(double[][] data){
+        double error = 0;
+        for(int i=0; i<data.length; i++){
             double a = runNeuron(data[i][0],data[i][1]);
-            System.out.println("---------------------------------");
-            System.out.println("  w1: "+w1);
-            System.out.println("  w2: "+w2);
-            System.out.println("bias: "+b);
-            System.out.println("case "+i+": "+a);
+            error += 0.5*Math.pow(data[i][2]-a, 2);
+            //System.out.println("---------------------------------");
+            //System.out.println("  w1: "+w1);
+            //System.out.println("  w2: "+w2);
+            //System.out.println("bias: "+b);
+            //System.out.println("case "+i+": "+a);
+            //System.out.println("error : "+error);
             updateError(a, data[i][2], data[i][0], data[i][1]);
         }
+        System.out.println(error/4);
+        return error/4;
     }
 
     public double runNeuron(double x1, double x2){
@@ -56,11 +61,17 @@ public class And_Perceptron3 {
     }
 
     public static void main(String[] args) {
-        and = new And_Perceptron3(0.5, 0.2, 0.8, 2);
-        for(int i=0; i<150; i++){
+        and = new And_Perceptron3(0.5, 0.2, 0.8, 0.8);
+        /*for(int i=0; i<1050; i++){
             and.trainNeuron(data);
+        }*/
+        double err=999;
+        int count=0;
+        while (err>0.01){
+            err=and.trainNeuron(data);
+            count++;
         }
-
+        System.out.println("veces: "+count);
         //System.out.println(and.runNeuron(1,3));
     }
 }
