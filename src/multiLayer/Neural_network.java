@@ -1,6 +1,7 @@
 package multiLayer;
 
 import java.util.ArrayList;
+import java.lang.IndexOutOfBoundsException;
 
 public class Neural_network {
 
@@ -15,13 +16,39 @@ public class Neural_network {
             all_Layers.add(new Layer( in0, neuronsNum[i]));
         }
     }
-    public void runNeuron(double[] input0){
+    public void runNeuralNetwork(double[] input0){
 
         for (int i=0; i<layersNum; i++){
-            double[] preInputs=(i==0)? input0:all_Layers.get(i-1).getZMatrix();
-            all_Layers.get(i).z_calulate(preInputs);
+            double[] preInputs=(i==0)? input0:all_Layers.get(i-1).getAMatrix();
+            all_Layers.get(i).runLayer(preInputs);
         }
         //return 0;
+    }
+
+    public void getNeuralNetworkInfo(){
+        System.out.println("------------------  NeuralNetwork_info  --------------------------\n");
+        for (int i=0; i<layersNum; i++){
+            System.out.println("       layer"+i+" :   "+all_Layers.get(i).getNeuronNum()+" neurons");
+        }
+        System.out.println("\n------------------------------------------------------------------");
+    }
+
+    public void getLayerInfo(int layer){
+        System.out.println("------------------  layer"+layer+"  info ---------------");
+        try {
+            all_Layers.get(layer).getLayerInfo();
+        }catch (IndexOutOfBoundsException e){
+            System.out.println("     the layer does not exist ! ");
+        }
+    }
+
+    public void getNeuronInfo(int layer, int neuron){
+        System.out.println("------------------  layer"+layer+"    --------------------");
+        try {
+            all_Layers.get(layer).getNeuronInfo(neuron);
+        }catch (IndexOutOfBoundsException e){
+            System.out.println("     the neuron does not exist ! ");
+        }
     }
 
     public ArrayList<Layer> getAll_Layers() {

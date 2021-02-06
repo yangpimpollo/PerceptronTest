@@ -6,9 +6,21 @@ public class Main {
         int[] neuronsNum={3,2};
         double[] input0= {3, 8};
 
+        Neural_network nn=new Neural_network(2,2, neuronsNum);
+        nn.getNeuralNetworkInfo();
 
-        Neuron n = new Neuron(2);
-        n.getNeuronInfo();
+        //nn.getNeuronInfo(0,2);
+        nn.runNeuralNetwork(input0);
+        nn.getLayerInfo(0);
+        nn.getLayerInfo(1);
+
+        //Neuron n = new Neuron(2);
+        //n.getNeuronInfo();
+        /*Layer l = new Layer(1,2);
+        l.runLayer(input0);
+        l.getLayerInfo();
+        l.getNeuronInfo(5);
+        l.getNeuronInfo(1);*/
 
     }
 }

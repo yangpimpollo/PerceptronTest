@@ -29,7 +29,7 @@ public class Neuron {
     }
 
     public void getNeuronInfo(){
-        System.out.println("------------------  neural_info  -------------------------\n");
+        //System.out.println("------------------  neural_info  -------------------------\n");
         System.out.println("     b: "+b);
         for (int i=0; i<inputsNum; i++){
             System.out.println("    w"+i+": "+w[i]);
