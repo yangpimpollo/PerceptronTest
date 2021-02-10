@@ -4,23 +4,27 @@ public class Main {
 
     public static void main(String[] args) {
         int[] neuronsNum={3,2};
-        double[] input0= {3, 8};
+        double[] input0= {3, 1, 2};
+        double[] data = { 1, 1};
+        double[] predelta = { 2,3,1};
+        double[][] preWT = { {1,2,3}, {4,5,6}};
 
         Neural_network nn=new Neural_network(2,2, neuronsNum);
-        nn.getNeuralNetworkInfo();
+       //nn.getNeuralNetworkInfo();
 
         //nn.getNeuronInfo(0,2);
-        nn.runNeuralNetwork(input0);
+        nn.forwardNeuralNetwork(input0);
+        nn.backwardNeuralNetwork(data);
         nn.getLayerInfo(0);
         nn.getLayerInfo(1);
 
         //Neuron n = new Neuron(2);
         //n.getNeuronInfo();
-        /*Layer l = new Layer(1,2);
-        l.runLayer(input0);
-        l.getLayerInfo();
-        l.getNeuronInfo(5);
-        l.getNeuronInfo(1);*/
+        /*Layer l = new Layer(3,2);
+        l.forwardLayer(input0);
+        l.backwardLayer(predelta, preWT);
+        l.getLayerInfo();*/
+
 
     }
 }
