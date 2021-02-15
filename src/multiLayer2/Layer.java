@@ -52,13 +52,13 @@ public class Layer {
 
         z=operative.z_calulate(inputs, w, b);
         a=operative.sigmoid(z);
-        da=operative.sigmoid_Derivative(a);
+        da=operative.sigmoid_Derivative(a);getInfo2();
     }
 
     public void backwardLayer(double[] error){
         delta = new double[neuronNum];
         for (int i=0; i<neuronNum; i++){
-            delta[i]+=error[i] * da[i];
+            delta[i]=error[i] * da[i];
         }
         computeLayerError();
     }
@@ -84,15 +84,15 @@ public class Layer {
     //---------------------------------------
     public void getInfo2(){
         //System.out.println("------------------  layer_info  --------------------------\n");
-        System.out.println("          inputsNum:  "+inputsNum);
-        System.out.println("          neuronNum:  "+neuronNum);
-        System.out.println("\n--------  bias_matrix  \n");
+        //System.out.println("          inputsNum:  "+inputsNum);
+        //System.out.println("          neuronNum:  "+neuronNum);
+        //System.out.println("\n--------  bias_matrix  \n");
         for (int i=0; i<neuronNum; i++){
             System.out.println("     b"+i+": "+b[i]);
         }
-        System.out.println("\n--------  weights_matrix  ");
+        //System.out.println("\n--------  weights_matrix  ");
         for (int j=0; j<neuronNum; j++){
-            System.out.println();
+            //System.out.println();
             for (int i=0; i<inputsNum; i++){
                 System.out.println("    w"+j+i+": "+w[j][i]);
             }

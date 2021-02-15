@@ -63,12 +63,13 @@ public class Neural_network {
     }
 
     private void computeError(double[] data){
+        total_Error=0;
         outputMatrix = new double[output1_Num];
         errorMatrix = new double[output1_Num];
         outputMatrix = all_Layers.get(layersNum-1).getAMatrix();
 
         for (int i=0; i<output1_Num; i++){
-            errorMatrix[i]=outputMatrix[i]-data[i];
+            errorMatrix[i]=data[i]-outputMatrix[i];
             total_Error+= 0.5*Math.pow(errorMatrix[i],2);
         }
 
