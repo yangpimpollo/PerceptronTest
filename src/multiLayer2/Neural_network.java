@@ -69,7 +69,7 @@ public class Neural_network {
         outputMatrix = all_Layers.get(layersNum-1).getAMatrix();
 
         for (int i=0; i<output1_Num; i++){
-            errorMatrix[i]=data[i]-outputMatrix[i];
+            errorMatrix[i]=outputMatrix[i] - data[i];
             total_Error+= 0.5*Math.pow(errorMatrix[i],2);
         }
 

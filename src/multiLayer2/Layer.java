@@ -52,7 +52,7 @@ public class Layer {
 
         z=operative.z_calulate(inputs, w, b);
         a=operative.sigmoid(z);
-        da=operative.sigmoid_Derivative(a);getInfo2();
+        da=operative.sigmoid_Derivative(a);//getInfo2();
     }
 
     public void backwardLayer(double[] error){
