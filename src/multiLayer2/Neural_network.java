@@ -10,15 +10,17 @@ public class Neural_network {
     private int output1_Num;
     private int layersNum;
     private int[] neuronsNum;
+    private int[] functionIndex;
 
     private double[] outputMatrix;
     private double[] errorMatrix;
     private double total_Error;
 
-    public Neural_network(int input0_Num, int layersNum, int[] neuronsNum, double n){
+    public Neural_network(int input0_Num, int layersNum, int[][] layerInfo, double n){
         this.input0_Num=input0_Num;
         this.layersNum=layersNum;
-        this.neuronsNum=neuronsNum;
+        this.neuronsNum=layerInfo[0];
+        this.functionIndex=layerInfo[1];
         this.n=n;
 
         initNeural_network();
@@ -27,9 +29,16 @@ public class Neural_network {
     private void initNeural_network(){
         for (int i=0; i<layersNum; i++){
             int in0=(i==0)? input0_Num:neuronsNum[i-1];
-            all_Layers.add(new Layer( in0, neuronsNum[i]));
+            all_Layers.add(new Layer( in0, neuronsNum[i], functionIndex[i]));
         }
         output1_Num=neuronsNum[layersNum-1];
+    }
+
+    public void runNeuralNetwork(double[] input){
+        forwardNeuralNetwork(input);
+        for(int i=0; i<output1_Num; i++){
+            System.out.println("       a"+i+" :   "+all_Layers.get(output1_Num-1).getAMatrix()[i]);
+        }
     }
 
     public double trainNeuralNetwork(double[] input, double[] data){

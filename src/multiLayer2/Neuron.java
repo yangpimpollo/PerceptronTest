@@ -20,10 +20,7 @@ public class Neuron {
         }
     }
 
-    public double[] getWeights() {
-        return w;
-    }
-
+    public double[] getWeights() { return w; }
     public double getBias() {
         return b;
     }

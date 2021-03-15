@@ -11,6 +11,7 @@ public class Layer {
     private ArrayList<Neuron> layerNeuron = new ArrayList<Neuron>();
     private int inputsNum;
     private int neuronNum;
+    private int function;
     private double[][] w;
     private double[][] wT;
     private double[] b;
@@ -22,9 +23,10 @@ public class Layer {
     private double[] delta;
     private double[] error;private boolean forward=false;
 
-    public Layer(int inputsNum, int neuronNum){
+    public Layer(int inputsNum, int neuronNum, int function){
         this.inputsNum=inputsNum;
         this.neuronNum=neuronNum;
+        this.function=function;
 
         initLayer();
 
@@ -51,8 +53,10 @@ public class Layer {
         da = new double[neuronNum];
 
         z=operative.z_calulate(inputs, w, b);
-        a=operative.sigmoid(z);
-        da=operative.sigmoid_Derivative(a);//getInfo2();
+        a=operative.Activation_function(z, function);
+        da=operative.Activation_Derivative(a, function);
+        //a=operative.sigmoid(z);
+        //da=operative.sigmoid_Derivative(a);//getInfo2();
     }
 
     public void backwardLayer(double[] error){
